@@ -1,0 +1,298 @@
+/* 
+----------------------------------------------
+General
+----------------------------------------------
+*/
+
+* {
+    box-sizing: border-box
+}
+
+a {
+    color: #777777;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #66CDAA;
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+body {
+    color: #777777;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Georgia', Times, Times New Roman, serif;
+}
+
+p {
+    line-height: 32px;
+}
+
+/* 
+----------------------------------------------
+Header
+----------------------------------------------
+*/
+
+.header {
+    background: #FFF;
+    height: 118.88px;
+    margin: 0 auto;
+    width: 960px;
+}
+
+.header-name {
+    background: #4AAAA5;
+    color: #FFF;
+    float: left;
+    padding: 20px;
+    text-align: center;
+    width: 350px;
+}
+
+.header-menu {
+    padding-top: 50px;
+    text-align: right;
+}
+
+.header-link::after {
+    content: "|";
+    margin: 0 15px;
+}
+
+/* 
+----------------------------------------------
+Container
+----------------------------------------------
+*/
+
+.container {
+    background-image: url("../images/background.png");
+    background-size: cover;
+    border-top: 2px #cccccc solid;
+    flex: 1 0 auto;
+    padding-top: 40px;
+    padding-bottom: 80px;
+}
+
+.content-box {
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+}
+
+.content {
+    background: #FFF;
+    border: 1px #cccccc solid;
+    float: left;
+    padding: 20px 40px;
+    position: relative;
+    width: 75%;
+}
+
+/* 
+----------------------------------------------
+Sidebar
+----------------------------------------------
+*/
+
+.sidebar {
+    background: #FFF;
+    border: 1px #cccccc solid;
+    float: left;
+    margin-left: 48px;
+    padding: 20px 40px;
+    position: relative;
+    width: 20%;
+    max-width: 192px;
+}
+
+.icon {
+    height: 100px;
+    margin-bottom: 20px;
+    width: 100px;
+}
+
+.icon:hover {
+    animation: spin 4s linear infinite;
+    -webkit-animation: spin 4s linear infinite;
+    -moz-animation: spin 4s linear infinite;
+}
+
+@-moz-keyframes spin {
+    100% {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+/* 
+----------------------------------------------
+General Page Content
+----------------------------------------------
+*/
+
+.page-title {
+    color: #4AAAA5;
+}
+
+.border {
+    border-bottom: 2px #cccccc solid;
+    margin: 25px 0 40px 0;
+}
+
+/* 
+----------------------------------------------
+About Page
+----------------------------------------------
+*/
+
+.about-image {
+    border-radius: 10%;
+    height: 200px;
+    float: left;
+    margin: 0 30px 30px 0;
+    width: 230px;
+}
+
+.clear {
+    clear: both;
+}
+
+/* 
+----------------------------------------------
+Portfolio Page
+----------------------------------------------
+*/
+
+.row {
+    padding-bottom: 250px;
+}
+
+.portfolio-item {
+    float: left;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.portfolio-image {
+    height: 200px;
+    margin-right: 40px;
+    width: 275px;
+}
+
+.portfolio-overlay {
+    background: #4AAAA5;
+    bottom: 15px;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 600;
+    position: absolute;
+    text-align: center;
+    width: 275px;
+}
+
+/* 
+----------------------------------------------
+Contact Page
+----------------------------------------------
+*/
+
+.contact-field {
+    font-size: 18px;
+    margin: 0;
+}
+
+#name {
+    border: 1px #cccccc solid;
+    color: #777777;
+    margin: 10px 0;
+    padding: 10px 0 10px 10px;
+    width: 100%;
+}
+
+#email {
+    border: 1px #cccccc solid;
+    color: #777777;
+    margin: 10px 0;
+    padding: 10px 0 10px 10px;
+    width: 100%;
+}
+
+#content {
+    border: 1px #cccccc solid;
+    color: #777777;
+    height: 200px;
+    margin: 10px 0;
+    padding: 10px 0 10px 10px;
+    width: 100%;
+}
+
+.button {
+    background: #4AAAA5;
+    border: none;
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    padding: 10px 30px;
+}
+
+.button:hover {
+    background: #66CDAA;
+    cursor: pointer;
+}
+
+.button:focus {
+    outline: 0;
+    background-color: blueviolet;
+    transform-origin: left;
+    transition: background-color 1000ms linear;
+    -webkit-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+}
+
+/* 
+----------------------------------------------
+Footer
+----------------------------------------------
+*/
+
+.footer {
+    background: #666666;
+    border-top: 20px #4AAAA5 solid;
+    bottom: 0;
+    flex-shrink: 0;
+    height: 80px;
+    width: 100%;
+}
+
+.footer-cotent {
+    text-align: center;
+}
+
+.copyright {
+    color: #cccccc;
+    padding-top: 28px;
+    margin: 0px;
+}
