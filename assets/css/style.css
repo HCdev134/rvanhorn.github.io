@@ -1,0 +1,60 @@
+/* 
+----------------------------------------------
+Custom Rules
+----------------------------------------------
+*/
+
+body {
+    background: url(../image/background-03.jpg) repeat center center fixed; 
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+}
+
+.footer {
+    background-color: #E9E9E9;
+    bottom: 0;
+    padding: 30px;
+    position: fixed;
+    width: 100%;
+}
+
+.image.is-90x150 {
+    height: 90px;
+    margin-right: 15px;
+    width: 150px;
+}
+
+.link-divider:after {
+    content: "|";
+    margin: 0 10px;
+}
+
+.column {
+    padding: 1.25rem 2.5rem 1.25rem 0;
+}
+
+/* 
+----------------------------------------------
+Bulma Overrides
+----------------------------------------------
+*/
+
+.is-primary {
+    background-color: #006CAB !important;
+}
+
+.hero.is-primary {
+    margin-bottom: 1.25em;
+}
+
+.subtitle.is-6 {
+    margin-bottom: 1rem;
+}
+
+.image img {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 90px !important;
+    width: 150px !important;
+}
