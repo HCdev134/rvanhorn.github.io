@@ -88,12 +88,12 @@
                 if (userLetter == randomLetter) {
 
                     // Since the user inputted the correct letter, increase 
-                    // userWin by 1 and computerLoss by one. We also want
-                    // to show the correct letter so add it to our userGuesses array.
+                    // userWin by 1 and computerLoss by one.  We also want
+                    // to clear the userGuesses array for the next game.
 
                     userWin++;
                     computerLoss++;
-                    userGuesses += [userLetter + ", "]
+                    userGuesses = [];
 
                     // Strictly for debugging. 
 
@@ -108,14 +108,15 @@
 
                     }
 
-                    // Update counts to reflect the current score. 
+                    // Update userWinTotal & computerLossTotal to reflect updated value. 
+                    // Also update guessedLetters to the empty array we set above. 
 
                     grabID("userWinTotal").innerHTML = userWin;
                     grabID("computerLossTotal").innerHTML = computerLoss;
                     grabID("guessedLetters").innerHTML = userGuesses;
 
-                    // Set randomLetter to null so it grabs a new random number next time. 
-                    // Then reset guessNumber to its original value. 
+                    // Set randomLetter to null so it grabs a new random number
+                    // next time then reset guessNumber to its original value. 
 
                     randomLetter = null;
                     guessNumber = 10;
@@ -125,14 +126,16 @@
 
                 } else {
 
-                    // Since the user lost by using up all their guesses,, increase 
-                    // userLoss by 1 and computerWin by one. We also want
-                    // to show the correct letter so add it to our userGuesses array.
+                    // Since the user guessed incorrectly, decrease guessNumber by one
+                    // and add the incorrect guess to userGuesses.
 
-                    userLoss++;
-                    computerWin++;
                     guessNumber--;
                     userGuesses += [userLetter + ", "];
+
+                    // Update guessesRemaining & guessedLetters to reflect current value.
+
+                    grabID("guessesRemaining").innerHTML = guessNumber;
+                    grabID("guessedLetters").innerHTML = userGuesses;
 
                     // Strictly for debugging. 
 
@@ -147,14 +150,22 @@
 
                     }
 
-                    // Update counts to reflect the current score. 
-
-                    grabID("userLossTotal").innerHTML = userLoss;
-                    grabID("computerWinTotal").innerHTML = computerWin;
-                    grabID("guessesRemaining").innerHTML = guessNumber;
-                    grabID("guessedLetters").innerHTML = userGuesses;
-
                     if (guessNumber == 0) {
+
+                        // Since the user lost by using up all their guesses,, increase 
+                        // userLoss by 1 and computerWin by one. We also want
+                        // to clear the userGuesses array for the next game.
+
+                        userGuesses = [];
+                        userLoss++;
+                        computerWin++;
+
+                        // Update userLossTotal & computerWinTotal to reflect updated value. 
+                        // Also update guessedLetters to the empty array we set above. 
+
+                        grabID("guessedLetters").innerHTML = userGuesses;
+                        grabID("userLossTotal").innerHTML = userLoss;
+                        grabID("computerWinTotal").innerHTML = computerWin;
 
                         // Strictly for debugging. 
 
@@ -171,7 +182,8 @@
 
             } else {
 
-                // Reset guessNumber to its original value. 
+                // Reset guessNumber to its original value and update
+                // guessesRemaining to show the reset value.  
 
                 guessNumber = 10
                 document.getElementById("guessesRemaining").innerHTML = guessNumber;
