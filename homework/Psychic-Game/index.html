@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Psychic Time</title>
+
+</head>
+
+<body>
+
+    <p>User Wins:
+        <span id="userWinTotal">0</span>
+    </p>
+    <p>User Losses:
+        <span id="userLossTotal">0</span>
+    </p>
+    <p>Computer Wins:
+        <span id="computerWinTotal">0</span>
+    </p>
+    <p>Computer Losses:
+        <span id="computerLossTotal">0</span>
+    </p>
+    <p>Letters Guessed:
+        <span id="guessedLetters"></span>
+    </p>
+
+    <p>Remaining Guesses:
+        <span id="guessesRemaining">10</span>
+    </p>
+
+    <script>
+        let randomLetter = null;
+
+        let userWin = 0;
+        let userLoss = 0;
+
+        let computerWin = 0;
+        let computerLoss = 0;
+        
+        let userGuesses = [];
+        let guessNumber = 10
+
+        let debug = true;
+
+        document.onkeyup = function (userKey) {
+
+            if (guessNumber !== 0) {
+
+                letterGroup = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q",
+                    "R", "S", "T", "U", "V", "W", "X", "Y", "Z"
+                ];
+
+                if (randomLetter === null) {
+
+                    randomNumber = Math.floor((Math.random() * 26) + 1) - 1;
+                    randomLetter = letterGroup[randomNumber];
+
+                }
+
+                userLetter = userKey.key
+                userLetter = userLetter.toUpperCase();
+
+                if (userLetter == randomLetter) {
+
+                    userWin++;
+                    computerLoss++;
+                    userGuesses += [userLetter + ", "]
+
+                    if (debug === true) {
+
+                        console.log("Correct")
+                        console.log("User Value: " + userLetter)
+                        console.log("Computer Value: " + randomLetter)
+                        console.log("Guesses Remaining: " + guessNumber)
+                        console.log("Guessed Letters: " + userGuesses)
+                        console.log("---------------")
+
+                    }
+
+                    document.getElementById("userWinTotal").innerHTML = userWin;
+                    document.getElementById("computerLossTotal").innerHTML = computerLoss;
+                    document.getElementById("guessedLetters").innerHTML = userGuesses;
+
+                    randomLetter = null;
+
+                    guessNumber = 10;
+                    document.getElementById("guessesRemaining").innerHTML = guessNumber;
+
+
+                } else {
+
+                    userLoss++;
+                    computerWin++;
+                    guessNumber--;
+                    userGuesses += [userLetter + ", "]
+
+                    if (debug === true) {
+
+                        console.log("Incorrect")
+                        console.log("User Value: " + userLetter)
+                        console.log("Computer Value: " + randomLetter)
+                        console.log("Guesses Remaining: " + guessNumber)
+                        console.log("Guessed Letters: " + userGuesses)
+                        console.log("---------------")
+
+                    }
+
+                    document.getElementById("userLossTotal").innerHTML = userLoss;
+                    document.getElementById("computerWinTotal").innerHTML = computerWin;
+                    document.getElementById("guessesRemaining").innerHTML = guessNumber;
+                    document.getElementById("guessedLetters").innerHTML = userGuesses;
+
+                    if (guessNumber == 0) {
+
+                        if (debug === true) {
+
+                            console.log("Game Over Man!")
+                            console.log("---------------")
+
+                        }
+
+                    }
+
+                }
+
+            } else {
+
+                guessNumber = 10
+                document.getElementById("guessesRemaining").innerHTML = guessNumber;
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
