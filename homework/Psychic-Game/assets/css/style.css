@@ -1,0 +1,54 @@
+/*
+------------------------------------------------
+Header Rules
+------------------------------------------------
+*/
+
+.header-wrapper {
+    background-color: #006ACD;
+    height: 80px;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+/*
+------------------------------------------------
+Layout Rules
+------------------------------------------------
+*/
+
+.players-box {
+    padding-left: 0;
+    padding-right: 60px;
+    text-align: center;
+}
+
+.player-score {
+    margin: 0 auto;
+    width: 252px;
+}
+
+.game-field {
+    padding: 0;
+    text-align: center;
+}
+
+.computers-box {
+    padding-left: 60px;
+    padding-right: 0;
+    text-align: center;
+}
+
+.computer-score {
+    margin: 0 auto;
+    width: 350px;
+}
+
+.score-heading {
+    padding: 10px;
+}
+
+.score-type {
+    padding-right: 10px;
+    font-size: 20px;
+}
