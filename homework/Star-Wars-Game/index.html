@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>Star Wars RPG</title>
+
+</head>
+
+<body>
+
+    <!-- Character Select -->
+
+    <div class="container">
+        <div class="section-spacer">
+            <h1 id="character-select">Select Your Character</h1>
+
+            <div class="row">
+                <div id="luke-row" class="col-xl-2">
+
+                    <div id="luke-info">
+
+                        <p class="character-name">Luke Skywalker</p>
+                        <p class="character-HP">HP: 140</p>
+                        <img id="luke" class="rounded image-container" src="assets/images/portraits/Luke-Skywalker.jpg"
+                            alt="Luke-Skywalker">
+
+                    </div>
+                </div>
+                <div id="mace-row" class="col-xl-2">
+                    <div id="mace-info">
+
+                        <p class="character-name">Mace Windu</p>
+                        <p class="character-HP">HP: 160</p>
+                        <img id="mace" class="rounded image-container" src="assets/images/portraits/Mace-Windu.jpg" alt="Mace Windu">
+
+                    </div>
+                </div>
+                <div id="han-row" class="col-xl-2">
+                    <div id="han-info">
+
+                        <p class="character-name">Han Solo</p>
+                        <p class="character-HP">HP: 150</p>
+                        <img id="han" class="rounded image-container" src="assets/images/portraits/Han-Solo.jpg" alt="Han-Solo">
+
+                    </div>
+                </div>
+                <div id="dooku-row" class="col-xl-2">
+                    <div id="dooku-info">
+                        <p class="character-name">Count Dooku</p>
+                        <p class="character-HP">HP: 170</p>
+                        <img id="dooku" class="rounded image-container" src="assets/images/portraits/Count-Dooku.jpg"
+                            alt="Count Dooku">
+
+                    </div>
+                </div>
+                <div id="sidious-row" class="col-xl-2">
+                    <div id="sidious-info">
+
+                        <p class="character-name">Emperor Sidious</p>
+                        <p class="character-HP">HP: 180</p>
+                        <img id="sidious" class="rounded image-container" src="assets/images/portraits/Emperor_Sidious.jpg"
+                            alt="Emperor Sidious">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Battle Arena -->
+
+        <div class="section-spacer">
+            <div class="battle-arena-wrapper">
+                <h1>Battle Arena</h1>
+                <button id="fight" class="btn btn-primary shadow rounded">Attack</button>
+            </div>
+
+            <div id="battle-arena" class="row">
+            </div>
+        </div>
+
+        <div class="section-spacer">
+
+            <!-- Battle Log-->
+
+            <h1>Battle Log</h1>
+
+            <div class="row">
+                <div id="battle-log" class="col-xl-12">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+    <script src="assets/js/starwars.js"></script>
+
+</body>
+
+</html>

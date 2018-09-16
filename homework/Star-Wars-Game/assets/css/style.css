@@ -1,0 +1,63 @@
+/* 
+---------------------------------------
+    General
+---------------------------------------
+*/
+
+body {
+    background-image: url(../images/background.jpg);
+    background-size: cover;
+    height: 100vh;
+}
+
+h1 {
+    color: #FFF;
+}
+
+p {
+    color: #FFF;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+
+.btn {
+    margin: 0 30px;;
+}
+
+.section-spacer {
+    margin: 40px 0;
+}
+
+
+/* 
+---------------------------------------
+    Character Portraits
+---------------------------------------
+*/
+
+.image-container {
+    border-radius: 5px;
+    border: 5px solid #E6E6E6;
+    box-shadow: 2px 2px 2px 1px #282a2d;
+    cursor: pointer;
+    margin-top: 20px;
+    height: 200px;
+    width: 160px;
+}
+
+/* 
+---------------------------------------
+    Battle Arena
+---------------------------------------
+*/
+
+.battle-arena-wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+}
+
+#battle-log {
+    margin-top: 30px;
+}
