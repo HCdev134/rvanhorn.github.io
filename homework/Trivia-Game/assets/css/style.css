@@ -1,0 +1,51 @@
+/* General */
+
+body {
+	background-attachment: fixed;
+	background-image: url("../images/background.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: 'Roboto', sans-serif;
+}
+
+p {
+	color: #ffc107;
+	font-size: 30px;
+	font-weight: 500;
+	padding: 20px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.large-font {
+	font-size: 36px;
+}
+
+.no-padding {
+	padding:0;
+}
+
+
+/* Trivia Box */
+
+.trivia-box {
+	background-color: rgba(2, 2, 2, 0.71);
+	border: 10px #F6F6F6 solid;
+	box-shadow: 10px 10px 5px rgba(2, 2, 2, 0.71);
+	height: 700px;
+	margin-top: 200px;
+}
+
+.question-text {
+	color: #a8b2fd;
+}
+
+.clickable-item {
+	cursor: pointer;
+}
+
+.clickable-item:hover {
+	color: #ff4c4c;
+}
+
