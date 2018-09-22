@@ -6,10 +6,7 @@ Custom Rules
 
 body {
     background: url(../image/background-03.jpg) repeat center center fixed; 
-    display: flex;
-    flex-direction: column;
     font-family: 'Roboto', sans-serif;
-    height: 100vh;
 }
 
 .footer {
