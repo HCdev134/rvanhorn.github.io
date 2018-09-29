@@ -1,0 +1,30 @@
+/* General */
+
+.row-spacer {
+	margin-bottom: 20px;
+	margin-top: 20px
+}
+
+.image-container {
+	border: 5px solid #E6E6E6;
+	box-shadow: 2px 2px 2px 1px #282a2d;
+}
+
+/* Bootstrap Overrides */
+
+.btn {
+	margin-left: 15px;
+	margin-top: 15px;
+	padding: 10px;
+}
+
+/*  Input Area */
+
+.input-wrapper {
+	display: flex;
+}
+
+input#user-input {
+	height: 40px;
+	margin-top: 20px;
+}
