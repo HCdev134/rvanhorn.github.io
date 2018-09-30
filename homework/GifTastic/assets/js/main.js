@@ -7,111 +7,113 @@ let giphyURL = "https://api.giphy.com/v1/gifs/search?api_key=" + api + "&q=";
 let newButton;
 let buttonRow = $("#buttonsRow");
 
-// Call createButtons to create initial buttons. 
-createButtons()
+// Call createButtons to create initial buttons.
+
+createButtons();
 
 function createButtons() {
 
-    // Delete current button row to replace with updated one.
-    $("#buttonsRow").empty();
+	// Delete current button row to replace with updated one.
+	$("#buttonsRow").empty();
 
-    for (let i = 0; i < topics.length; i++) {
+	for (let i = 0; i < topics.length; i++) {
 
-        console.log(topics.length)
+		console.log(topics.length);
 
-        newButton = $("<button>");
-        newButton.text(topics[i]);
-        newButton.attr("id", topics[i]);
-        newButton.attr("class", "btn btn-primary gif-topic");
-        buttonRow.append(newButton);
-    }
+		newButton = $("<button>");
+		newButton.text(topics[i]);
+		newButton.attr("id", topics[i]);
+		newButton.attr("class", "btn btn-primary gif-topic");
+		buttonRow.append(newButton);
+	}
 }
 
 // AJAX call to make Giphy magic.
 function giphyMagic(topicID) {
 
-    // Delete current image row to replace with updated one.
-    $("#imagesRow").empty();
+	// Delete current image row to replace with updated one.
+	$("#imagesRow").empty();
 
-    $.ajax({
+	$.ajax({
 
-        url: giphyURL + topicID,
-        method: "GET"
+		url: giphyURL + topicID,
+		method: "GET"
 
-    }).then(function (response) {
+	}).then(function (response) {
 
-        // Log response to verify data.
-        console.log(response);
+		// Log response to verify data.
+		console.log(response);
 
-        for (let imageMax = 0; imageMax < 12; imageMax++) {
+		for (let imageMax = 0; imageMax < 12; imageMax++) {
 
-            let image = $("<img>");
-            let imageDiv = $("<div>");
-            let nameParagraph = $("<p>")
-            let ratingParagraph = $("<p>")
-            let indexNumber = response.data.findIndex(p => p.id == response.data[imageMax].id)
+			let image = $("<img>");
+			let imageDiv = $("<div>");
+			let nameParagraph = $("<p>");
+			let ratingParagraph = $("<p>");
+			let indexNumber = response.data.findIndex(p => p.id === response.data[imageMax].id);
 
-            gifStill.push(response.data[imageMax].images.fixed_width_still.url);
-            gifActive.push(response.data[imageMax].images.fixed_width.url);
+			gifStill.push(response.data[imageMax].images.fixed_width_still.url);
+			gifActive.push(response.data[imageMax].images.fixed_width.url);
 
-            image.attr("src", response.data[imageMax].images.fixed_width_still.url);
-            image.attr("class", "image-container gif-click");
-            image.attr("id", response.data[imageMax].id)
-            image.attr("object-num", indexNumber);
-            image.attr("gif-state", "still");
+			image.attr("src", response.data[imageMax].images.fixed_width_still.url);
+			image.attr("class", "image-container gif-click");
+			image.attr("id", response.data[imageMax].id);
+			image.attr("object-num", indexNumber);
+			image.attr("gif-state", "still");
 
-            imageDiv.attr("class", "col-xl-3 row-spacer");
-            nameParagraph.text("Title: " + response.data[imageMax].title)
-            ratingParagraph.text("Rating: " + response.data[imageMax].rating)
+			imageDiv.attr("class", "col-xl-3 row-spacer");
+			nameParagraph.text("Title: " + response.data[imageMax].title);
+			ratingParagraph.text("Rating: " + response.data[imageMax].rating);
 
-            imageDiv.append(image, nameParagraph, ratingParagraph);
-            $("#imagesRow").append(imageDiv);
+			imageDiv.append(image, nameParagraph, ratingParagraph);
+			$("#imagesRow").append(imageDiv);
 
-        }
+		}
 
-    });
+	});
 }
 
 $("#addNewGif").on("click", function (event) {
 
-    event.preventDefault();
+	event.preventDefault();
 
-    let newGif = $("#user-input").val().trim();
-    topics.push(newGif);
-    createButtons();
+	let newGif = $("#user-input").val().trim();
+	topics.push(newGif);
+	createButtons();
 
 });
 
 // Click event that fires when user clicks a button
 $(document).on("click", ".gif-topic", function () {
 
-    gifStill = [];
-    gifActive = [];
+	gifStill = [];
+	gifActive = [];
 
-    giphyMagic(this.id);
+	giphyMagic(this.id);
 
 });
 
 $(document).on("click", ".gif-click", function () {
 
-    let imageID = this.id;
-    let indexID = $("#" + imageID).attr("object-num");
-    let gifState = $("#" + imageID).attr("gif-state");
+	let imageID = this.id;
+	let selector = $("#" + imageID);
+	let indexID = selector.attr("object-num");
+	let gifState = selector.attr("gif-state");
 
-    if (gifState === "still") {
+	if (gifState === "still") {
 
-        console.log("CLICKED ON")
+		console.log("CLICKED ON");
 
-        $("#" + imageID).attr("src", gifActive[indexID]);
-        $("#" + imageID).attr("gif-state", "active");
+		selector.attr("src", gifActive[indexID]);
+		selector.attr("gif-state", "active");
 
-    } else {
+	} else {
 
-        console.log("CLICKED OFF")
+		console.log("CLICKED OFF");
 
-        $("#" + imageID).attr("src", gifStill[indexID]);
-        $("#" + imageID).attr("gif-state", "still");
+		selector.attr("src", gifStill[indexID]);
+		selector.attr("gif-state", "still");
 
-    }
+	}
 
 });
