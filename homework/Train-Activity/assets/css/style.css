@@ -1,0 +1,10 @@
+/* Bootstrap Overrides */
+
+.navbar-brand {
+  color: #FFF !important;
+  font-weight: 500;
+}
+
+.navbar {
+  margin-bottom: 40px;
+}
