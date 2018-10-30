@@ -18,3 +18,9 @@ Users can use one of the four available commands.
   - do-what-it-says
     * If the user does not specify the command, one of the above will be randomly used. 
     * `node liri.js`
+    
+## Example
+
+The following video shows this program in action.
+
+https://github.com/rvanhorn/rvanhorn.github.io/blob/master/homework/Liri-Node/example.mp4
