@@ -1,10 +1,321 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
+	
 	<meta charset = "UTF-8">
-	<title>Title</title>
+	<title>Friend Finder Survey</title>
+	
+	<!--Bootstrap  -->
+	<link rel = "stylesheet" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+			integrity = "sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin = "anonymous">
+	
+	<style>
+		
+		select {
+			margin-bottom: 1em;
+		}
+		
+	</style>
+	
 </head>
+
 <body>
 
+<div class = "container">
+	<div class = "jumbotron">
+		
+		<h1 class = "display-4">Survey Questions</h1>
+		<p class = "lead">Fill out the following form so our system can find a match for you.</p>
+	
+	</div>
+	
+	<div class = "user-info">
+		
+		<h3>Your Name</h3>
+		<input type = "text" id = "name" class = "form-control">
+		<h3>Your Image</h3>
+		<input type = "text" id = "image" class = "form-control">
+	
+	</div>
+	<hr class = "my-4">
+	
+	<div>
+		<h3>Question 1</h3>
+		<p>Your mind is always buzzing with unexplored ideas and plans.</p>
+		
+		<select id = "question1" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	
+	<div>
+		<h3>Question 2</h3>
+		<p>Generally speaking, you rely more on your experience than your imagination.</p>
+		
+		<select id = "question2" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 3</h3>
+		<p>You find it easy to stay relaxed and focused even when there is some pressure.
+		</p>
+		
+		<select id = "question3" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 4</h3>
+		<p>You rarely do something just out of sheer curiosity.</p>
+		
+		<select id = "question4" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 5</h3>
+		<p>People can rarely upset you.</p>
+		
+		<select id = "question5" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 6</h3>
+		<p>It is often difficult for you to relate to other people’s feelings.</p>
+		
+		<select id = "question6" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 7</h3>
+		<p>In a discussion, truth should be more important than people’s sensitivities.</p>
+		
+		<select id = "question7" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 8</h3>
+		<p>You rarely get carried away by fantasies and ideas.
+		</p>
+		
+		<select id = "question8" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 9</h3>
+		<p>You feel more energetic after spending time with a group of people.</p>
+		
+		<select id = "question9" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	<div>
+		<h3>Question 10</h3>
+		<p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
+		
+		<select id = "question10" name = "">
+			<option value = "">1</option>
+			<option value = "">2</option>
+			<option value = "">3</option>
+			<option value = "">4</option>
+			<option value = "">5</option>
+		</select>
+	</div>
+	
+	<button class = "submit btn btn-primary" type = "submit" data-target = "#userModal">Submit</button>
+	
+	<!-- Modal -->
+	<div class = "modal fade" id = "userModal" tabindex = "-1" role = "dialog" aria-labelledby = "userModalLabel" aria-hidden = "true">
+		<div class = "modal-dialog" role = "document">
+			<div class = "modal-content">
+				<div class = "modal-header">
+					
+					<h5 class = "modal-title" id = "userModalLabel">Your Closest Match!</h5>
+					<button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+					</button>
+				
+				</div>
+				<div class = "modal-body">
+					
+					<h3 id = "userName"></h3>
+					<img id = "userImage" src = "" alt = "" width = "250px" height = "250px">
+				
+				</div>
+				<div class = "modal-footer">
+					
+					<button type = "button" class = "btn btn-secondary close-modal" data-dismiss = "modal">Close</button>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class = "footer">
+	
+	<div class = "container">
+		<p><a href = "/api/friends">API Friends</a> | <a href = "https://github.com/robaboyd/friendfinder">Github link</a></p>
+	</div>
+
+</footer>
+
+<!-- Bootstrap -->
+<script src = "https://code.jquery.com/jquery-3.3.1.min.js" integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin = "anonymous"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity = "sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin = "anonymous"></script>
+<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+		integrity = "sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin = "anonymous"></script>
+
 </body>
+
+<script type = "text/javascript">
+
+	// Global Variables
+	let userName;
+	let userImage;
+	let currentUser = {};
+	let scoreDifference = 0;
+	let defaultDifference = 0;
+
+	$(document).on('click', '.submit', function (e) {
+
+		if ($('#name').val() === "" || $('#image').val() === "") {
+
+			alert("You must input a Name and Image link!");
+
+		} else {
+
+			e.preventDefault();
+
+			currentUser = {
+
+				name: $('#name').val().trim(),
+				image: $('#image').val().trim(),
+				scores: [
+
+					$('#question1').find(":selected").text(),
+					$('#question2').find(":selected").text(),
+					$('#question3').find(":selected").text(),
+					$('#question4').find(":selected").text(),
+					$('#question5').find(":selected").text(),
+					$('#question6').find(":selected").text(),
+					$('#question7').find(":selected").text(),
+					$('#question8').find(":selected").text(),
+					$('#question9').find(":selected").text(),
+					$('#question10').find(":selected").text()
+
+				]
+			};
+
+			// Post Data
+			$.post("/api/friends", currentUser, function (users) {
+
+				if (users) {
+					console.log('Added');
+				}
+
+			});
+
+			// Find best match and display info in a modal.
+			$.ajax({url: "/api/friends", method: "GET"}).then(function (users) {
+
+				defaultDifference = 100;
+
+				for (let i = 0; i < users.length; i++) {
+
+					scoreDifference = 0;
+
+					// Check for match.
+					if (i === users.length - 1) {
+
+						$("#userName").text(userName);
+						$("#userImage").attr({
+							src: userImage,
+							alt: userName
+						});
+
+						$("#userModal").modal('show');
+
+						console.log("User: " + userName);
+						return;
+
+					}
+
+					for (let x = 0; x < users[i].scores.length; x++) {
+
+						let individualQuestionScore = parseInt(users[i].scores[x]) - parseInt(currentUser.scores[x]);
+
+						// Check for negative value and make it positive.
+						if (individualQuestionScore < 0) {
+
+							individualQuestionScore = individualQuestionScore * -1;
+
+						}
+
+						scoreDifference = parseInt(scoreDifference) + individualQuestionScore;
+					}
+
+					if (scoreDifference < defaultDifference) {
+
+						console.log("Running Check...");
+						console.log("Score Difference: " + scoreDifference);
+						userName = users[i].name;
+						userImage = users[i].image;
+
+					}
+				}
+			})
+		}
+	});
+
+	$(document).on('click', '.close-modal', function (e) {
+
+		window.location.href = "/";
+
+	});
+
+
+</script>
 </html>
