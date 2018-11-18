@@ -14,9 +14,9 @@
 		select {
 			margin-bottom: 1em;
 		}
-		
-	</style>
 	
+	</style>
+
 </head>
 
 <body>
@@ -43,7 +43,7 @@
 		<h3>Question 1</h3>
 		<p>Your mind is always buzzing with unexplored ideas and plans.</p>
 		
-		<select id = "question1" name = "">
+		<select id = "question1">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -56,7 +56,7 @@
 		<h3>Question 2</h3>
 		<p>Generally speaking, you rely more on your experience than your imagination.</p>
 		
-		<select id = "question2" name = "">
+		<select id = "question2">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -69,7 +69,7 @@
 		<p>You find it easy to stay relaxed and focused even when there is some pressure.
 		</p>
 		
-		<select id = "question3" name = "">
+		<select id = "question3">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -81,7 +81,7 @@
 		<h3>Question 4</h3>
 		<p>You rarely do something just out of sheer curiosity.</p>
 		
-		<select id = "question4" name = "">
+		<select id = "question4">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -93,7 +93,7 @@
 		<h3>Question 5</h3>
 		<p>People can rarely upset you.</p>
 		
-		<select id = "question5" name = "">
+		<select id = "question5">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -105,7 +105,7 @@
 		<h3>Question 6</h3>
 		<p>It is often difficult for you to relate to other people’s feelings.</p>
 		
-		<select id = "question6" name = "">
+		<select id = "question6">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -117,7 +117,7 @@
 		<h3>Question 7</h3>
 		<p>In a discussion, truth should be more important than people’s sensitivities.</p>
 		
-		<select id = "question7" name = "">
+		<select id = "question7">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -130,7 +130,7 @@
 		<p>You rarely get carried away by fantasies and ideas.
 		</p>
 		
-		<select id = "question8" name = "">
+		<select id = "question8">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -142,7 +142,7 @@
 		<h3>Question 9</h3>
 		<p>You feel more energetic after spending time with a group of people.</p>
 		
-		<select id = "question9" name = "">
+		<select id = "question9">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -154,7 +154,7 @@
 		<h3>Question 10</h3>
 		<p>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</p>
 		
-		<select id = "question10" name = "">
+		<select id = "question10">
 			<option value = "">1</option>
 			<option value = "">2</option>
 			<option value = "">3</option>
@@ -179,7 +179,7 @@
 				<div class = "modal-body">
 					
 					<h3 id = "userName"></h3>
-					<img id = "userImage" src = "" alt = "" width = "250px" height = "250px">
+					<img id = "userImage" src = "" alt = "" width = "150px" height = "150px">
 				
 				</div>
 				<div class = "modal-footer">
@@ -216,8 +216,6 @@
 	let userName;
 	let userImage;
 	let currentUser = {};
-	let scoreDifference = 0;
-	let defaultDifference = 0;
 
 	$(document).on('click', '.submit', function (e) {
 
@@ -261,11 +259,11 @@
 			// Find best match and display info in a modal.
 			$.ajax({url: "/api/friends", method: "GET"}).then(function (users) {
 
-				defaultDifference = 100;
+				let currentDifference = 150;
 
 				for (let i = 0; i < users.length; i++) {
 
-					scoreDifference = 0;
+					let newDifference = 0;
 
 					// Check for match.
 					if (i === users.length - 1) {
@@ -282,10 +280,13 @@
 						return;
 
 					}
-
+					
 					for (let x = 0; x < users[i].scores.length; x++) {
-
+						
 						let individualQuestionScore = parseInt(users[i].scores[x]) - parseInt(currentUser.scores[x]);
+
+						// console.log("Users:" + users[i].scores[x]);
+						// console.log("Current:" + currentUser.scores[x]);
 
 						// Check for negative value and make it positive.
 						if (individualQuestionScore < 0) {
@@ -294,15 +295,24 @@
 
 						}
 
-						scoreDifference = parseInt(scoreDifference) + individualQuestionScore;
+						newDifference = parseInt(newDifference) + individualQuestionScore;
+
 					}
+					
+					console.log("Current User: " + i);
+					console.log("New Diff: " + newDifference);
+					console.log("Current Diff: " + currentDifference);
+					console.log("---------------------------------");
 
-					if (scoreDifference < defaultDifference) {
+					if (newDifference < currentDifference) {
 
-						console.log("Running Check...");
-						console.log("Score Difference: " + scoreDifference);
+						console.log("Updating...");
+						console.log("Lowest Difference: " + newDifference);
+						console.log("Username: " + users[i].name);
+						console.log("---------------------------------");
 						userName = users[i].name;
 						userImage = users[i].image;
+						currentDifference = newDifference;
 
 					}
 				}
